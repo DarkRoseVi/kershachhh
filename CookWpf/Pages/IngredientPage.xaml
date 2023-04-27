@@ -1,0 +1,64 @@
+﻿<Page x:Class="CookWpf.Pages.IngredientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CookWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="IngredientPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="332*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка по единице измерения" Margin="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox  DisplayMemberPath="Title" 
+                          Margin="5" x:Name="UnitlCb" SelectionChanged="UnitlCb_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <!--<StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged" ></TextBox>
+            </StackPanel>-->
+
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="IngredientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="652">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="219"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Photo }"></Image>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Название" Margin="5"/>
+                                    <TextBlock Text="{Binding Title}" Margin="5"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Единица измерения"  Margin="5"/>
+                                    <TextBlock Text="{Binding Unit.Title}" Margin="5"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="Количество оставшееся на складе"/>
+                                <TextBlock Text="{Binding  Quantity}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,58 @@
+﻿<Page x:Class="WaiterWpf.Mypages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WaiterWpf.Mypages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="332*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged"></TextBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" >
+                <TextBlock  VerticalAlignment ="Center" Margin="5">Сортировка</TextBlock>
+                <ComboBox x:Name="SortCb" Margin="5" SelectionChanged="SortCb_SelectionChanged"  Width="100" Height="20">
+                    <ComboBoxItem Tag="1">от А до Я</ComboBoxItem>
+                    <ComboBoxItem Tag="2">от Я до А</ComboBoxItem>
+                    <ComboBoxItem Tag="3">все</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <ListView Margin="5"  Grid.Row="1" x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock Margin="5">Имя</TextBlock>
+                            <TextBlock Margin="5" Text="{Binding FUO}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <Button Content="Удалить "
+                                    x:Name="DeletBtn"
+                                    Style="{StaticResource Mybutton}"
+                                    Click="DeletBtn_Click"></Button>
+                            <Button Content="Редактировать" x:Name="EditBtn"  Style="{StaticResource Mybutton}" Click="EditBtn_Click" ></Button>
+                        </StackPanel>
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="2" Height="20" Width="60" Content="Добавить" Click="Button_Click" Style="{StaticResource Mybutton}"></Button>
+    </Grid>
+</Page>

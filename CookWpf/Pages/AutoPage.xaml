@@ -1,0 +1,35 @@
+﻿<Page x:Class="CookWpf.Pages.AutoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CookWpf.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutoPage">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="\Image\1773de1ef13baf80c0d11e45e57c68cc.JPG" 
+                        Stretch="Fill" TileMode="None"
+                        Opacity="0.8"></ImageBrush>
+        </Grid.Background>
+        <Rectangle  HorizontalAlignment="Center" 
+                    Width="250" Height="200"
+                    VerticalAlignment="Center" >
+            <Rectangle.Fill>
+                <ImageBrush/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Логин"  HorizontalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="LoginTb" Style="{StaticResource myTestBox}"/>
+            <TextBlock Text="Пароль"  HorizontalAlignment="Center" Margin="5" Foreground="#FFFFAF00"/>
+            <TextBox x:Name="PasswordTb"  Style="{StaticResource myTestBox}" Margin="5"/>
+            <Button Click="VxodBtn_Click"
+                    Margin="18"
+                    x:Name="VxodBtn" Content="Вход" Height="20" Width="100"
+                    Style="{StaticResource Mybutton}"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

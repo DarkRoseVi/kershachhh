@@ -1,0 +1,61 @@
+﻿<Page x:Class="WpfApp5.MyPages.ProviderInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp5.MyPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+               DataContext="{Binding RelativeSource={RelativeSource Self}}"
+
+      Title="ProviderInfoPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="397*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment ="Center" Height="120">
+            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+                <TextBlock Text="Наименование поставщика"></TextBlock>
+                <TextBox Text="{Binding Proviser.Title}" Style="{StaticResource MyTextBox}" x:Name="NameTb" PreviewTextInput="NameTb_PreviewTextInput"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+                <TextBlock Text="Адрес"></TextBlock>
+                <TextBox Text="{Binding Proviser.Adress}" Style="{StaticResource MyTextBox}" x:Name="AdressTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+                <TextBlock Text="Телефон "></TextBlock>
+                <TextBox Text="{Binding  Proviser.Phone}" Style="{StaticResource MyTextBox}" x:Name="PhoneTb" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
+            </StackPanel>
+            <Button Content="Сохранить" 
+                    Height="20" Width="80" 
+                    x:Name="SaveBtn" Style="{StaticResource Mybutton}" Margin="5" Click="SaveBtn_Click"></Button>
+        </StackPanel>
+        <ListView Grid.Row="0"
+               
+                  Grid.Column="1"
+                  ItemsSource="{Binding landings}"
+                  x:Name="ProductLw"
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="5" Text="{Binding Ingredient.Title}"/>
+                            <TextBlock Margin="5" Text="{Binding Quantity}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button 
+            Height="20" Width="80" 
+            Style="{StaticResource Mybutton}" Grid.Column="1" Grid.Row="1" Content="Доабвить" x:Name="AddBtn" Click="AddBtn_Click"/>
+
+    </Grid>
+</Page>

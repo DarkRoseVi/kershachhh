@@ -1,0 +1,52 @@
+﻿<Window x:Class="ChefWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChefWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="678*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="321*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"  >
+            <TextBlock x:Name="MyTitle"   Text="Удачной работы шеф повар" ></TextBlock>
+
+        </StackPanel>
+        <StackPanel Background="#FF5C0F24">
+            <Image Source="\Image\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" 
+               Height="67" OpacityMask="#FF5C0F24"/>
+
+        </StackPanel>
+
+        <Frame Grid.Row="1" x:Name="MyFrame"  Grid.Column="2" NavigationUIVisibility="Hidden"/>
+        <StackPanel Background="#FF5C0F24" Grid.Column="0" Grid.Row="1">
+            <Button Content="Сотрудники"
+                    x:Name="EmployeeBtn" Click="EmployeeBtn_Click"
+                    Style="{StaticResource Mybutton}"/>
+            <Button Content="Блюда"
+                    x:Name="DishBtn" Click="DishBtn_Click"
+                    Style="{StaticResource Mybutton}"/>
+            <Button Content="Заказы"
+                    x:Name="OrderBtn" Click="OrderBtn_Click"
+                    Style="{StaticResource Mybutton}"/>
+            <Button Content="Поставки"
+                    x:Name="LaintingBtn"  Click="LaintingBtn_Click"
+                    Style="{StaticResource Mybutton}"/>
+
+        </StackPanel>
+        <StackPanel Background="#FF5C0F24" Grid.Row="2" Grid.ColumnSpan="2" />
+        <StackPanel Grid.Row="2" Background="#FF5C0F24" Grid.Column="0">
+            <Button Content="Выход" x:Name="ExitBtn" 
+                    Click="ExitBtn_Click"
+                    Style="{StaticResource Mybutton}"/>
+        </StackPanel>
+    </Grid>
+</Window>
