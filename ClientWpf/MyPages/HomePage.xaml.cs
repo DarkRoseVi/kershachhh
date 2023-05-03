@@ -25,9 +25,8 @@ namespace ClientWpf.MyPages
         public HomePage()
         {
             InitializeComponent();
-            //NameTb.Text = Navogation.AutoUser.Name;
-            //lastnameTb.Text  = Navogation.AutoUser.LastName;
-            //PatromimecTb.Text = Navogation.AutoUser.Patronymic;
+            NameTb.Text = Navogation.AutoUser.Name;
+            LastNamTb.Text = Navogation.AutoUser.LastName; 
         }
 
         private void DishBtn_Click(object sender, RoutedEventArgs e)

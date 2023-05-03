@@ -52,11 +52,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button Style="{StaticResource Mybutton}" 
-                    Height="20" Width="140"
-                    Content="Добавить ингрединет" 
-                    x:Name="AddIngredBtn" ></Button>
+                    Height="20" Width="140" Margin="5"
+                    Content="Добавить ингредиент" x:Name="AddIngredBtn" Click="AddIngredBtn_Click"></Button>
+            <Button Content="Добавть картинку" Height="20" Width="150" Margin="2"
+                    Style="{StaticResource Mybutton}"  x:Name="AddImageTbn" Click="AddImageTbn_Click"/>
         </StackPanel>
         <ListView Grid.Row="1" Grid.Column="1"
                   x:Name="StageLw"
@@ -78,11 +79,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <Button Margin="2" Height="20" Width="190"
-                Content="Добавить  этап приготовления" 
-                    Style="{StaticResource Mybutton}" x:Name="AddCookStageBtn"/>
-            <Button Content="Созранить изменение" Height="20" Width="150" Margin="2"
-                    Style="{StaticResource Mybutton}" x:Name="SaveBtn"/>
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <Button Content="Сохранить изменение" Height="20" Width="150" Margin="2"
+                    Style="{StaticResource Mybutton}" Click="SaveBtn_Click" x:Name="SaveBtn"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -16,18 +16,40 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-            <Label>Категория</Label>
-            <ComboBox Name="CmbCategory" DisplayMemberPath="Name" ></ComboBox>
-            <Label Margin="35,0,0,0">Наименование:</Label>
-            <TextBox x:Name="TxtSearch" ></TextBox>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Сортировка по категории" Margin="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox 
+                          DisplayMemberPath="Title"  Margin="5" x:Name="CategorylCb" SelectionChanged="CategorylCb_SelectionChanged" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Сортировка по остроте" Margin="5" 
+                           VerticalAlignment="Center"></TextBlock>
+                <ComboBox 
+                      Margin="5" 
+                          x:Name="DegreeSharpnesslCb" SelectionChanged="DegreeSharpnesslCb_SelectionChanged" 
+                       >
+
+                    <ComboBoxItem Tag="1">Все</ComboBoxItem>
+                    <ComboBoxItem Tag="2">не остро</ComboBoxItem>
+                    <ComboBoxItem Tag="3">стреднее</ComboBoxItem>
+                    <ComboBoxItem Tag="4">терпиом</ComboBoxItem>
+                    <ComboBoxItem Tag="5">остро</ComboBoxItem>
+                    <ComboBoxItem Tag="6">сверх остро</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
+                <TextBox x:Name="PoisTb" Margin="5" TextChanged="PoisTb_TextChanged" 
+                        Width="150" ></TextBox>
+            </StackPanel>
         </StackPanel>
 
-        <ListView Grid.Row="2" x:Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+        <ListView Grid.Row="2" x:Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
@@ -38,12 +60,15 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Grid.RowSpan="2" Source="C:\Users\hp\source\repos\WpfApp5\WpfApp5\Images\20b200b3248f72d9de79609b1652eccd.jpg" Stretch="UniformToFill"></Image>
+                        <Image Grid.RowSpan="2" Margin="5"
+                               Height="150"
+                               Width="150"
+                               Source="{Binding Photo}" Stretch="UniformToFill"></Image>
                         <Grid Grid.Row="1" Background="Black" Opacity="0.5"></Grid>
                         <TextBlock Grid.Row="1" Foreground="White" FontSize="18" Text="{Binding Title}" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
                         <TextBlock Grid.Row="1" Foreground="White" FontSize="14" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,5" 
                                    Text="{Binding Cost, StringFormat={}1 порция {0:f} руб}" FontStyle="Italic"></TextBlock>
-                        <!--<Button x:Name="Recipe" Content="Рецепт"  Margin="5" Padding="5" Click="Recipe_Click"></Button>-->
+                     
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

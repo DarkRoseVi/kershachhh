@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -48,9 +49,28 @@ namespace WpfApp5.MyPages
 
         private void SavveBtn_Click(object sender, RoutedEventArgs e)
         {
-            BdConect.db.Dish.FirstOrDefault(x => x.Id == dis.Id).Photo = image;
+            var dish = BdConect.db.Dish.Where(x => x.Id == dis.Id).FirstOrDefault();
+            dish.Photo = image;
             MessageBox.Show("yes");
-            BdConect.db.SaveChanges();
+            
+            try
+            {
+                BdConect.db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                List<string> mess = new List<string>();
+
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        mess.Add("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+
+                MessageBox.Show(string.Join("\n", mess));
+            }
         }
     }
 }

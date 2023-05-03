@@ -47,7 +47,10 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView Grid.Row="2" x:Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="LViewDishes_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}" >
+        <ListView Grid.Row="2" x:Name="LViewDishes" 
+                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectionChanged="LViewDishes_SelectionChanged"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -56,14 +59,13 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="250" Height="200">
+                    <Grid Width="250" Height="250">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Grid.RowSpan="2" Margin="5"
-                               Height="150"
-                               Width="150"
+                        <Image Grid.RowSpan="2" 
+                             Width="200" Height="200"
                                Source="{Binding Photo}" Stretch="UniformToFill"></Image>
                         <Grid Grid.Row="1" Background="Black" Opacity="0.5"></Grid>
                         <TextBlock Grid.Row="1" Foreground="White" FontSize="18" Text="{Binding Title}" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>

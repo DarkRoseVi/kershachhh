@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChefWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="115*"/>
@@ -17,7 +17,9 @@
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
         <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"  >
-            <TextBlock x:Name="MyTitle"   Text="Удачной работы шеф повар" ></TextBlock>
+            <TextBlock x:Name="MyTitle" Style="{StaticResource Tb}"
+                      Margin="0 15 0 0"
+                       Text="Удачной работы шеф повар"  />
 
         </StackPanel>
         <StackPanel Background="#FF5C0F24">

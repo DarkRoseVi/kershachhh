@@ -42,6 +42,7 @@ namespace ChefWpf.Mypages
             DependencyProperty.Register("CookingStages", typeof(IEnumerable<CookingStage>), typeof(IngredientOfCookingSage));
 
         public Dish dish { get; set; }
+        public static EditDishPage Instance;
         public EditDishPage(Dish _dish)
         {
             IngredientOfCookings = BdConect.db.CookingStage.Where(x => x.DishId == _dish.Id).SelectMany(s => s.IngredientOfCookingSage).ToList();
@@ -50,6 +51,23 @@ namespace ChefWpf.Mypages
             dish = _dish;
 
             InitializeComponent();
+        }
+        public static void UpdateIngridientList(Dish dish)
+        {
+            Instance.CookingStages = BdConect.db.CookingStage.Where(x => x.DishId == dish.Id).ToList();
+        }
+
+        private void AddIngredBtn_Click(object sender, RoutedEventArgs e) =>
+            new AddCookStage(new Ingredient(), dish).ShowDialog();
+
+        private void AddImageTbn_Click(object sender, RoutedEventArgs e) =>
+            new AddImage(dish).ShowDialog();
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            dish.Title = TitleTb.Text.Trim();
+            dish.Cost = int.Parse(CostTb.Text.Trim());
+            BdConect.db.SaveChanges();
         }
     }
 }

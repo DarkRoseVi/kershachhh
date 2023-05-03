@@ -152,6 +152,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Mypages\AddCookStage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mypages\AddImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mypages\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +198,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mypages\AddCookStage.xaml.cs">
+      <DependentUpon>AddCookStage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mypages\AddImage.xaml.cs">
+      <DependentUpon>AddImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mypages\AddOrderPage.xaml.cs">
       <DependentUpon>AddOrderPage.xaml</DependentUpon>
     </Compile>

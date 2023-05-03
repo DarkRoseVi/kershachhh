@@ -18,9 +18,12 @@
             <RowDefinition Height="321*"/>
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"  >
-            <TextBlock x:Name="MyTitle"  Text="Начало работы " ></TextBlock>
-
+        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"   >
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="5 15 0 0" >
+            <TextBlock x:Name="MyTitle"  Text="Добро пожаловать"  Style="{StaticResource Tb}" ></TextBlock>
+            <TextBlock x:Name="NameTb" Style="{StaticResource Tb}"/>
+            <TextBlock x:Name="LastNamTb" Style="{StaticResource Tb}"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel Background="#FF5C0F24">
             <Image Source="\Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Width="116" Height="67" OpacityMask="#FF5C0F24"/>

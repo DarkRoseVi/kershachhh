@@ -16,8 +16,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="DishId" Type="int" />
           <Property Name="TimeintMinutes" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -50,7 +50,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="DegreeSharpnessId" Type="int" />
           <Property Name="Photo" Type="image" />
           <Property Name="OrdelId" Type="int" />
@@ -73,11 +73,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Photo" Type="image" />
           <Property Name="Quantity" Type="int" />
           <Property Name="UnitId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="IngredientOfCookingSage">
           <Key>
@@ -595,8 +596,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DishId" Type="Int32" />
           <Property Name="TimeintMinutes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dish" Relationship="kersachViModel.FK_CookingStage_Dish" FromRole="CookingStage" ToRole="Dish" />
@@ -635,7 +636,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DegreeSharpnessId" Type="Int32" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OrdelId" Type="Int32" />
@@ -667,11 +668,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="UnitId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Unit" Relationship="kersachViModel.FK_Ingredient_Unit" FromRole="Ingredient" ToRole="Unit" />
           <NavigationProperty Name="IngredientOfCookingSage" Relationship="kersachViModel.FK_IngredientOfCookingSage_Ingredient" FromRole="Ingredient" ToRole="IngredientOfCookingSage" />
           <NavigationProperty Name="Landing" Relationship="kersachViModel.FK_Landing_Ingredient" FromRole="Ingredient" ToRole="Landing" />
@@ -1087,6 +1089,7 @@
           <EntitySetMapping Name="Ingredient">
             <EntityTypeMapping TypeName="kersachViModel.Ingredient">
               <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="UnitId" ColumnName="UnitId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
