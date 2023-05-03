@@ -47,6 +47,12 @@ namespace WpfApp5.MyPages
                 Unit selectiunt = (Unit)UnitlCb.SelectedItem;
                 inglist = inglist.Where(x=>x.UnitId == selectiunt.Id).ToList();
             }
+            if (PoisTb == null)
+                return;
+            if (PoisTb.Text.Length > 0)
+            {
+                inglist = inglist.Where(x => x.Title.StartsWith(PoisTb.Text));
+            }
             IngredientLW.ItemsSource = inglist.ToList();
         }
 
@@ -62,6 +68,11 @@ namespace WpfApp5.MyPages
         }
 
         private void UnitlCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            reshres();
+        }
+
+        private void PoisTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             reshres();
         }

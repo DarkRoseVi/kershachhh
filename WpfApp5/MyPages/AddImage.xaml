@@ -15,7 +15,7 @@
             <Button Content="Добавить картинку" 
                         Style="{StaticResource Mybutton}" Height="20" Width="120" Margin="5"
                         x:Name="AddBtn" Click="AddBtn_Click"></Button>
-            <Button x:Name="SavveBtn" Click="SavveBtn_Click" Content="Save"></Button>
+            <Button Style="{StaticResource Mybutton}" x:Name="SavveBtn" Click="SavveBtn_Click" Content="Сохранить изменения"></Button>
         </StackPanel>
     </Grid>
 </Window>

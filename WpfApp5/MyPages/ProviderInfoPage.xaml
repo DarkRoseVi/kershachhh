@@ -19,17 +19,17 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment ="Center" Height="120">
+        <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment ="Center" >
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <TextBlock Text="Наименование поставщика"></TextBlock>
-                <TextBox Text="{Binding Proviser.Title}" Style="{StaticResource MyTextBox}" x:Name="NameTb" PreviewTextInput="NameTb_PreviewTextInput"></TextBox>
+                <TextBlock Text="Наименование поставщика"  Margin="5"></TextBlock>
+                <TextBox Text="{Binding Proviser.Title}" Style="{StaticResource MyTextBox}" Width="200" x:Name="NameTb" PreviewTextInput="NameTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <TextBlock Text="Адрес"></TextBlock>
-                <TextBox Text="{Binding Proviser.Adress}" Style="{StaticResource MyTextBox}" x:Name="AdressTb"></TextBox>
+                <TextBlock Text="Адрес"  Margin="5"></TextBlock>
+                <TextBox Text="{Binding Proviser.Adress}" Style="{StaticResource MyTextBox}" Width="200" x:Name="AdressTb"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <TextBlock Text="Телефон "></TextBlock>
+                <TextBlock Text="Телефон "  Margin="5" ></TextBlock>
                 <TextBox Text="{Binding  Proviser.Phone}" Style="{StaticResource MyTextBox}" x:Name="PhoneTb" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <Button Content="Сохранить" 

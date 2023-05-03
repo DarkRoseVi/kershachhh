@@ -20,10 +20,10 @@
                 <ComboBox Style="{StaticResource MyTComboBox}" DisplayMemberPath="Title" 
                           Margin="5" x:Name="UnitlCb" SelectionChanged="UnitlCb_SelectionChanged"></ComboBox>
             </StackPanel>
-            <!--<StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
-                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged" ></TextBox>
-            </StackPanel>-->
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged"  ></TextBox>
+            </StackPanel>
 
         </StackPanel>
         <ListView Grid.Row="1" x:Name="IngredientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
